@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: white !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Telegram Mini App optimizations */
+.telegram-mini-app {
+  min-height: var(--tg-viewport-height, 100vh);
+  padding-top: var(--tg-safe-area-inset-top, 0px);
+  padding-bottom: var(--tg-safe-area-inset-bottom, 0px);
+}
+
+/* Touch optimizations for mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* RIZY LAND Custom Colors */
+  --rizy-blue: 231 62% 38%; /* #1E3A8A */
+  --rizy-green: 84 71% 44%; /* #84CC16 */
+  --rizy-yellow: 54 91% 63%; /* #FDE047 */
+  
+  /* Telegram Mini App Variables */
+  --tg-viewport-height: 100vh;
+  --tg-safe-area-inset-top: 0px;
+  --tg-safe-area-inset-bottom: 0px;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+@layer components {
+  .rizy-bg {
+    background-color: hsl(var(--rizy-blue));
+  }
+  
+  .rizy-green {
+    background-color: hsl(var(--rizy-green));
+  }
+  
+  .rizy-yellow {
+    background-color: hsl(var(--rizy-yellow));
+  }
+
+  .logo-gradient {
+    background: linear-gradient(135deg, hsl(var(--rizy-green)) 0%, hsl(var(--rizy-yellow)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .logo-shadow {
+    text-shadow: 4px 4px 0px #1F2937, 8px 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Принудительное кеширование изображений */
+  .preload-images::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-image: 
+      url('/src/assets/лого.png'),
+      url('/src/assets/SsLL6F5M.png'),
+      url('/src/assets/yyd0NvCl.jpeg'),
+      url('/src/assets/KSwKI_wq.jpeg');
+  }
+
+  /* Smooth scrolling for mobile admin panels */
+  .admin-scroll {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    scroll-behavior: smooth;
+  }
+
+  /* Better text wrapping in admin cards */
+  .admin-card {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Простое слайд-перелистывание */
+  .page-turn-next {
+    animation: slideNext 0.5s ease-out forwards;
+  }
+
+  .page-turn-prev {
+    animation: slidePrev 0.5s ease-out forwards;
+  }
+
+  @keyframes slideNext {
+    0% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slidePrev {
+    0% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  /* Scrollbar hiding for touch devices */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .character-bounce {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: translate3d(0, 0, 0);
+    }
+    40%, 43% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(0, -8px, 0);
+    }
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(0, -4px, 0);
+    }
+    90% {
+      transform: translate3d(0, -2px, 0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Page Flip Animation Styles */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .page-flip-enter {
+    transform: rotateY(-90deg);
+    transform-origin: right;
+  }
+
+  .page-flip-enter-active {
+    transform: rotateY(0deg);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .page-flip-exit {
+    transform: rotateY(0deg);
+    transform-origin: left;
+  }
+
+  .page-flip-exit-active {
+    transform: rotateY(90deg);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .page-curl-next {
+    animation: pageCurlNext 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .page-curl-prev {
+    animation: pageCurlPrev 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes pageCurlNext {
+    0% {
+      transform: rotateY(0deg) rotateX(0deg);
+      transform-origin: right center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 0px;
+    }
+    20% {
+      transform: rotateY(-20deg) rotateX(5deg);
+      transform-origin: right center;
+      box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
+      border-radius: 0 0 20px 0;
+    }
+    50% {
+      transform: rotateY(-90deg) rotateX(10deg);
+      transform-origin: right center;
+      box-shadow: 15px 15px 40px rgba(0,0,0,0.5);
+      border-radius: 0 0 40px 0;
+    }
+    80% {
+      transform: rotateY(-160deg) rotateX(5deg);
+      transform-origin: right center;
+      box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
+      border-radius: 0 0 20px 0;
+    }
+    100% {
+      transform: rotateY(-180deg) rotateX(0deg);
+      transform-origin: right center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 0px;
+    }
+  }
+
+  @keyframes pageCurlPrev {
+    0% {
+      transform: rotateY(0deg) rotateX(0deg);
+      transform-origin: left center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 0px;
+    }
+    20% {
+      transform: rotateY(20deg) rotateX(5deg);
+      transform-origin: left center;
+      box-shadow: -5px 10px 30px rgba(0,0,0,0.3);
+      border-radius: 0 0 0 20px;
+    }
+    50% {
+      transform: rotateY(90deg) rotateX(10deg);
+      transform-origin: left center;
+      box-shadow: -15px 15px 40px rgba(0,0,0,0.5);
+      border-radius: 0 0 0 40px;
+    }
+    80% {
+      transform: rotateY(160deg) rotateX(5deg);
+      transform-origin: left center;
+      box-shadow: -5px 10px 30px rgba(0,0,0,0.3);
+      border-radius: 0 0 0 20px;
+    }
+    100% {
+      transform: rotateY(180deg) rotateX(0deg);
+      transform-origin: left center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 0px;
+    }
+  }
+}

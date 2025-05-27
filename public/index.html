@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIZY LAND - Детские книги</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .api-section {
+            margin-bottom: 30px;
+        }
+        
+        .api-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        
+        .api-list {
+            list-style: none;
+        }
+        
+        .api-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .api-list a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .api-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .status {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .telegram-info {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .telegram-info h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .telegram-info code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏰 RIZY LAND</h1>
+            <p>Telegram Mini App - Детские книги и аудиокниги</p>
+        </div>
+        
+        <div class="content">
+            <div class="status">
+                ✅ Сервер успешно запущен и готов к работе!
+            </div>
+            
+            <div class="api-section">
+                <h2>📚 API Endpoints</h2>
+                <ul class="api-list">
+                    <li><a href="/api/categories">GET /api/categories</a> - Категории книг</li>
+                    <li><a href="/api/books">GET /api/books</a> - Список книг</li>
+                    <li><a href="/api/audiobooks">GET /api/audiobooks</a> - Аудиокниги</li>
+                    <li><a href="/api/shop">GET /api/shop</a> - Товары в магазине</li>
+                    <li><a href="/api/search?q=колобок">GET /api/search?q=колобок</a> - Поиск</li>
+                    <li><a href="/health">GET /health</a> - Проверка работы сервера</li>
+                </ul>
+            </div>
+            
+            <div class="telegram-info">
+                <h3>🤖 Настройка Telegram Mini App</h3>
+                <p><strong>Bot Token:</strong> <code>7191911445:AAE3KVC8tMmsRm9qOkCbqmT0p774fZO9P2M</code></p>
+                <p><strong>Web App URL:</strong> Используйте URL этого развернутого приложения</p>
+                <p><strong>Команды для BotFather:</strong></p>
+                <ul>
+                    <li>/newbot - создать нового бота</li>
+                    <li>/setmenubutton - добавить кнопку меню</li>
+                    <li>/setdomain - настроить домен для Mini App</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
